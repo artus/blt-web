@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*
+{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+:root 
+{
+    --blt-color-1: rgb(84, 151, 75);
+    --blt-color-1-alt: rgb(70, 165, 57);
+
+    --blt-color-2: rgb(226, 226, 226);
+    --blt-color-2-alt: rgb(194, 194, 194);
+
+    --blt-color-3: rgb(42, 105, 176);
+    --blt-color-3-alt: rgb(63, 125, 196);
+
+    --blt-padding: 10px;
+    --blt-padding-double: calc(2 * var(--blt-padding));
+    --blt-padding-triple: calc(3 * var(--blt-padding));
+
+    --blt-menu-width: 75px;
+    --blt-menubutton-width: calc( var(--blt-menu-width) - 2 * var(--blt-padding));
+
+    --blt-border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.row, .column
+{
+    display: flex;
+}
+
+.row 
+{
+    flex-direction: row;
+}
+
+.column
+{
+    flex-direction: column;
+}
+
+.stretch
+{
+    align-items: stretch;
+}
+
+.blt-menubutton
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+
+    width: var(--blt-menubutton-width);
+    height: var(--blt-menubutton-width);
+    font-size: 1.5em;
+
+    margin-bottom: var(--blt-padding-double);
+    
+    transition: 0.2s;
+    cursor: pointer;
+    border-radius: var(--blt-border-radius);
+}
+
+.blt-menubutton:hover 
+{
+    background: var(--blt-color-3-alt);
+}
+
+.margin-under
+{
+    margin-bottom: var(--blt-padding);
+}
+
+.margin-right
+{
+    margin-right: var(--blt-padding);
+}
+
+.key-value
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: var(--blt-padding);
+}
+
+.key-value span:first-child
+{
+    font-weight: 600;
+}
+
+.line
+{
+    border-bottom: 1px solid var(--blt-color-2);
+}
+
+.blt-pane
+{
+    background-color: white;
+    margin: var(--blt-padding-double);
+    padding: var(--blt-padding-double);
+
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}

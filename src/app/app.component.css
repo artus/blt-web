@@ -1,0 +1,39 @@
+#blt-app
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#blt-header
+{
+    width: 100%;
+    padding: var(--blt-padding-double);
+    background: var(--blt-color-1);
+
+    font-size: 1.5em;
+    color: white;
+}
+
+#blt-content
+{
+    width: 100%;
+    height: 100%;
+    background: var(--blt-color-2);
+}
+
+#blt-menu
+{
+    background: var(--blt-color-3);
+    color: white;
+
+    width: var(--blt-menu-width);
+    height: 100%;
+
+    padding: var(--blt-padding);
+}
+
+#blt-pane
+{
+    position: relative;
+}
