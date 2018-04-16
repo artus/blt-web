@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
   hostInput = "";
   portInput = "";
 
-  webSocketUrlInput = "";
+  webSocketUrlInput = "ws://localhost:9985/api/v1/streams/valid_transactions";
 
   constructor(public bltService : BltService) { }
 

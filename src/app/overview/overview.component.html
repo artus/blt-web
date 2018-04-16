@@ -8,7 +8,9 @@
 
   <div class="key-value line">
     <span>Host</span>
-    <span>{{bltService.blt.node_host}}</span>
+    <span>
+      <a href="{{bltService.blt.root_url}}">{{bltService.blt.node_host}}</a>
+    </span>
   </div>
 
   <div class="key-value line">
@@ -31,8 +33,31 @@
     <span>Software</span>
     <span>{{bltService.nodeInfo.software}}</span>
   </div>
+
+  <div class="key-value line margin-top">
+    <span>WebSocket</span>
+    <span>
+      <a href="{{bltService.nodeInfo.apiInfo.streams}}">link</a>
+    </span>
+  </div>
+
+  <div class="key-value line">
+    <span>Docs</span>
+    <span>
+      <a href="{{bltService.nodeInfo.docs}}">link</a>
+    </span>
+  </div>
+
+  <div class="key-value line margin-top">
+    <span>Transactions since reload:</span>
+    <span>{{bltService.transactionStream.length}}</span>
+  </div>
 </div>
 
-<div id="blt-ws-transactions" class="column grow-4">
-  <div class="card row" *ngFor="let tx of bltService.transactionStream">{{tx}}</div>
+<div class="column grow-4 has-scrollable-child">
+  <div id="blt-ws-transactions" class="column grow scrollable-y">
+    <div class="balloon warning row pointer padding-big" *ngFor="let tx of bltService.transactionStream">
+      {{tx}}
+    </div>
+  </div>
 </div>

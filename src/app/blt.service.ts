@@ -29,7 +29,7 @@ export class BltService {
   {
     this.transactionWebSocket = new WebSocket(url);
     this.transactionWebSocket.onmessage = event => {
-      this.transactionStream.push(event.data);
+      this.transactionStream.unshift(event.data);
     }
   }
 
