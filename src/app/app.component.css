@@ -8,10 +8,19 @@
 #blt-header
 {
     width: 100%;
-    padding: var(--blt-padding-double);
+    padding: var(--blt-padding);
     background: var(--blt-color-1);
 
-    font-size: 1.5em;
+    color: white;
+}
+
+#blt-header span
+{
+    color: white;
+}
+
+#blt-header *, #blt-header .blt-menubutton i
+{
     color: white;
 }
 
@@ -27,13 +36,7 @@
     background: var(--blt-color-3);
     color: white;
 
-    width: var(--blt-menu-width);
-    height: 100%;
+    max-width: 75px;
 
     padding: var(--blt-padding);
-}
-
-#blt-pane
-{
-    position: relative;
 }

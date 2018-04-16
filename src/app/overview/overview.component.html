@@ -1,0 +1,38 @@
+<div class="card column grow padding-big">
+  <h2 class="margin-bottom margin-right">Node information</h2>
+
+  <div class="key-value line">
+    <span>Protocol</span>
+    <span>{{bltService.blt.connection_protocol}}</span>
+  </div>
+
+  <div class="key-value line">
+    <span>Host</span>
+    <span>{{bltService.blt.node_host}}</span>
+  </div>
+
+  <div class="key-value line">
+    <span>Port</span>
+    <span>{{ (bltService.blt.node_port) ? bltService.blt.node_port : 'default'}}</span>
+  </div>
+
+  <div class="key-value line">
+    <span>Api path</span>
+    <span>{{ bltService.blt.api_path }}</span>
+  </div>
+
+
+  <div class="key-value line margin-top">
+    <span>Version</span>
+    <span>{{bltService.nodeInfo.version}}</span>
+  </div>
+
+  <div class="key-value line">
+    <span>Software</span>
+    <span>{{bltService.nodeInfo.software}}</span>
+  </div>
+</div>
+
+<div id="blt-ws-transactions" class="column grow-4">
+  <div class="card row" *ngFor="let tx of bltService.transactionStream">{{tx}}</div>
+</div>

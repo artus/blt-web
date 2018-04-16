@@ -1,12 +1,18 @@
-<div id="blt-app" class="column">
-  <div id="blt-header" class="column">
-    Bigchaindb Load Tester
+<div id="blt-app" class="column grow no-padding no-margin">
+
+  <div id="blt-header" class="row vertical-center space-between">
+    <h1>Bigchaindb Load Tester</h1>
+
+    <div class="blt-menubutton" routerLink="/settings">
+      <i class="fas fa-cog"></i>
+    </div>
+
   </div>
 
-  <div id="blt-content" class="row">
+  <div id="blt-content" class="row grow">
 
-    <div id="blt-menu" class="column">
-      <div class="blt-menubutton">
+    <div id="blt-menu" class="column padding grow">
+      <div class="blt-menubutton" routerLink="/overview">
         <i class="fas fa-home"></i>
       </div>
       <div class="blt-menubutton">
@@ -17,14 +23,8 @@
       </div>
     </div>
 
-    <div id="blt-pane" class="row stretch">
-      <div class="blt-pane">
-        <h2 class="margin-under margin-right">Node information</h2>
-        <div class="key-value line">
-          <span>Version</span>
-          <span>v1.0</span>
-        </div>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
+
   </div>
+
 </div>

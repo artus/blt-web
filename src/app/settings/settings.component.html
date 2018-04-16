@@ -1,0 +1,46 @@
+<div class="column grow-2">
+
+  <div class="card column">
+
+    <h4 class="margin-bottom-small">Node Settings</h4>
+
+    <div class="row grow">
+      <div class="form-group width-2">
+        <label>Protocol:</label>
+        <input type="text" placeholder="https" [(ngModel)]="protocolInput">
+      </div>
+
+      <div class="form-group width-6">
+        <label>Host:</label>
+        <input type="text" placeholder="localhost" [(ngModel)]="hostInput">
+      </div>
+
+      <div class="form-group width-2 last">
+        <label>Port:</label>
+        <input type="text" placeholder="9984" [(ngModel)]="portInput">
+      </div>
+    </div>
+
+    <div class="button primary text-center" (click)="onSaveSettingsClicked()">
+      Save Settings
+    </div>
+  </div>
+
+  <div class="card column">
+    <h4 class="margin-bottom-small">Override WebSocket URL</h4>
+
+    <div class="row grow">
+      <div class="form-group grow">
+        <label>WebSocket Url:</label>
+        <input type="text" placeholder="ws://localhost:9985/api/v1/streams/valid_transactions" [(ngModel)]="webSocketUrlInput">
+      </div>
+    </div>
+
+    <div class="button primary text-center" (click)="onWsUrlClicked()">Save Settings</div>
+
+  </div>
+
+
+</div>
+
+<div class="grow-4"></div>
