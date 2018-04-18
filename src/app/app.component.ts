@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BltService } from './blt.service';
+import { GlobalsService } from './globals.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { BltService } from './blt.service';
 export class AppComponent {
   title = 'BigchainDB Load Tester';
 
-  constructor(public bltService : BltService) {
+  constructor(public bltService: BltService, public globals: GlobalsService) {
 
   }
 }

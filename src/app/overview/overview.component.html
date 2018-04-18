@@ -24,24 +24,24 @@
   </div>
 
 
-  <div class="key-value line margin-top">
+  <div class="key-value line margin-top" *ngIf="bltService.nodeInfo">
     <span>Version</span>
     <span>{{bltService.nodeInfo.version}}</span>
   </div>
 
-  <div class="key-value line">
+  <div class="key-value line" *ngIf="bltService.nodeInfo">
     <span>Software</span>
     <span>{{bltService.nodeInfo.software}}</span>
   </div>
 
-  <div class="key-value line margin-top">
+  <div class="key-value line margin-top" *ngIf="bltService.nodeInfo">
     <span>WebSocket</span>
     <span>
       <a href="{{bltService.nodeInfo.apiInfo.streams}}">link</a>
     </span>
   </div>
 
-  <div class="key-value line">
+  <div class="key-value line" *ngIf="bltService.nodeInfo">
     <span>Docs</span>
     <span>
       <a href="{{bltService.nodeInfo.docs}}">link</a>
@@ -54,10 +54,23 @@
   </div>
 </div>
 
-<div class="column grow-4 has-scrollable-child">
-  <div id="blt-ws-transactions" class="column grow scrollable-y">
-    <div class="balloon warning row pointer padding-big" *ngFor="let tx of bltService.transactionStream">
-      {{tx}}
+<div class="column grow-4 has-scrollable-child padding-left">
+  <div class="column grow scrollable-y">
+    <div class="row margin-left-small margin-top">
+      <h3>Latest Transactions</h3>
+    </div>
+    <div id="blt-ws-transactions" class="column grow">
+      <div class="column no-margin" *ngFor="let tx of bltService.transactionStream">
+        <div class="row margin-top margin-bottom-small margin-left-small">
+          <p>{{tx.timestamp.toLocaleTimeString()}}:</p>
+        </div>
+        <div class="row warning warning-hover balloon pointer padding-big no-margin margin-left-small no-margin-top margin-right">
+          {{tx.transaction}}
+        </div>
+      </div>
+      <div class="card shrink no-margin margin-left-small margin-top margin-right" *ngIf="bltService.transactionStream.length == 0">
+        No transactions yet...
+      </div>
     </div>
   </div>
 </div>

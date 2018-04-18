@@ -9,12 +9,15 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { OverviewComponent } from './overview/overview.component';
 import { SettingsComponent } from './settings/settings.component';
+import { GlobalsService } from './globals.service';
+import { ExplorerComponent } from './explorer/explorer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
     SettingsComponent,
+    ExplorerComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { SettingsComponent } from './settings/settings.component';
     FormsModule,
   ],
   providers: [
-    BltService
+    BltService,
+    GlobalsService,
   ],
   bootstrap: [AppComponent]
 })

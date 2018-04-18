@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BltService } from '../blt.service';
 
 @Component({
@@ -14,19 +15,18 @@ export class SettingsComponent implements OnInit {
 
   webSocketUrlInput = "ws://localhost:9985/api/v1/streams/valid_transactions";
 
-  constructor(public bltService : BltService) { }
+  constructor(public bltService: BltService, public router: Router) { }
 
   ngOnInit() {
   }
 
-  onSaveSettingsClicked()
-  {
+  onSaveSettingsClicked() {
     console.log("Saving settings...");
     this.bltService.loadBlt(this.protocolInput, this.hostInput, this.portInput);
+    this.router.navigate(['/overview']);
   }
 
-  onWsUrlClicked()
-  {
+  onWsUrlClicked() {
     console.log("Creating new connection for WebSockets...")
     this.bltService.initializeWebSocketConnection(this.webSocketUrlInput);
   }

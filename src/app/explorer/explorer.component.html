@@ -1,0 +1,35 @@
+
+<!-- Asset search -->
+<div class="column grow width-3 has-scrollable-child">
+  <div class="column grow scrollable-y">
+
+    <!-- Input -->
+    <div class="card form-group rounded margin-small no-padding margin-bottom">
+      <input type="text" [(ngModel)]="searchInput" (ngModelChange)="onSearchInputChange()" class="no-margin padding no-borders" placeholder="Search for assets...">
+    </div>
+
+    <!-- results -->
+
+    <div class="row balloon margin-small warning warning-hover pointer" *ngFor="let asset of assets" (click)="loadTransactions(asset.id)">
+      <pre>{{ JSON.stringify(asset, null, 4) }}</pre>
+    </div>
+
+  </div>
+</div>
+
+<!-- Transaction results -->
+<div class="column grow width-3 has-scrollable-child">
+  <div class="column grow scrollable-y">
+    <h3 class="margin-small">Transactions</h3>
+    <div class="row grow balloon margin-small warning warning-hover pointer" *ngFor="let transaction of transactions">
+      <pre>{{ JSON.stringify(transaction, null, 4) }}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- Transaction details -->
+<div class="column grow width-4 has-scrollable-child">
+  <div class="column grow scrollable-y">
+    <div class="margin-small">Transaction Detail</div>
+  </div>
+</div>

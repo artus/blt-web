@@ -15,7 +15,7 @@
       <div class="blt-menubutton" routerLink="/overview">
         <i class="fas fa-home"></i>
       </div>
-      <div class="blt-menubutton">
+      <div class="blt-menubutton" routerLink="/explorer">
         <i class="fas fa-search"></i>
       </div>
       <div class="blt-menubutton">
@@ -23,7 +23,22 @@
       </div>
     </div>
 
-    <router-outlet></router-outlet>
+
+    <div class="row grow" *ngIf="globals.isLoading">
+      <div class="card">
+        <h3>Loading...</h3>
+      </div>
+    </div>
+
+    <div class="row grow" *ngIf="globals.isError">
+      <div class="card">
+        <h3>Error</h3>
+        {{globals.error}}
+      </div>
+    </div>
+
+    <router-outlet *ngIf="bltService.blt != undefined && !globals.isLoading && !globals.isError"></router-outlet>
+
 
   </div>
 
