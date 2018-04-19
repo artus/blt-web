@@ -15,7 +15,7 @@ export class BltService {
   transactionsForAsset: Array<any> = new Array();
 
   constructor(public globals: GlobalsService) {
-    this.loadBlt("http", "localhost", "9984");
+    this.loadBlt("https", "test3.bigchaindb.com", "443");
   }
 
   loadBlt(protocol, host, port) {
