@@ -42,4 +42,8 @@ export class ExplorerComponent implements OnInit {
     this.transactions = await this.bltService.blt.connection.listTransactions(assetId);
   }
 
+  async loadTransaction(transactionId) {
+    this.transaction = await this.bltService.blt.connection.getTransaction(transactionId);
+  }
+
 }

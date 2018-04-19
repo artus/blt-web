@@ -1,35 +1,52 @@
-
 <!-- Asset search -->
-<div class="column grow width-3 has-scrollable-child">
-  <div class="column grow scrollable-y">
+<div class="column grow has-scrollable-child">
+  <div class="column grow scrollable-y padding-big">
 
     <!-- Input -->
-    <div class="card form-group rounded margin-small no-padding margin-bottom">
-      <input type="text" [(ngModel)]="searchInput" (ngModelChange)="onSearchInputChange()" class="no-margin padding no-borders" placeholder="Search for assets...">
+    <div class="card form-group rounded no-margin no-padding margin-bottom">
+      <input type="text" [(ngModel)]="searchInput" (ngModelChange)="onSearchInputChange()" class="no-margin padding no-borders"
+        placeholder="Search for assets...">
     </div>
 
     <!-- results -->
 
-    <div class="row balloon margin-small warning warning-hover pointer" *ngFor="let asset of assets" (click)="loadTransactions(asset.id)">
-      <pre>{{ JSON.stringify(asset, null, 4) }}</pre>
+    <div class="row" *ngFor="let asset of assets">
+      <div class="width-10 balloon no-margin margin-bottom warning warning-hover pointer overflow-x-hidden" (click)="loadTransactions(asset.id)">
+        <pre>{{ JSON.stringify(asset, null, 4) }}</pre>
+      </div>
     </div>
 
   </div>
 </div>
 
 <!-- Transaction results -->
-<div class="column grow width-3 has-scrollable-child">
-  <div class="column grow scrollable-y">
-    <h3 class="margin-small">Transactions</h3>
-    <div class="row grow balloon margin-small warning warning-hover pointer" *ngFor="let transaction of transactions">
-      <pre>{{ JSON.stringify(transaction, null, 4) }}</pre>
+<div class="column grow has-scrollable-child">
+  <div class="column grow scrollable-y padding-big">
+
+    <!-- Transacion title -->
+    <h3 class="no-margin margin-bottom-small" *ngIf="transactions.length == 0">Transactions</h3>
+    <h3 class="no-margin margin-bottom-small" *ngIf="transactions.length !== 0">Transactions: {{transactions.length}}</h3>
+
+
+    <div class="row" *ngFor="let transaction of transactions" (click)="loadTransaction(transaction.id)">
+      <div class="balloon no-margin margin-bottom warning warning-hover pointer overflow-x-hidden">
+        <pre>{{ JSON.stringify(transaction, null, 4) }}</pre>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- Transaction details -->
-<div class="column grow width-4 has-scrollable-child">
-  <div class="column grow scrollable-y">
-    <div class="margin-small">Transaction Detail</div>
+<div class="column grow has-scrollable-child">
+  <div class="column grow scrollable-y padding-big">
+
+    <h3 class="margin-bottom-small">Transaction details</h3>
+
+    <div class="row" *ngIf="transaction">
+      <div class="balloon no-margin margin-bottom warning warning-hover overflow-x-hidden">
+          <pre>{{ JSON.stringify(transaction, null, 4)}}</pre>
+      </div>
+    </div>
+
   </div>
 </div>

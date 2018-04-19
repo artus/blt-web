@@ -27,6 +27,7 @@ router-outlet + *
 {
     display: flex;
     flex-grow: 1;
+    flex-basis: 0;
     flex-direction: row;
 
     padding: 0;
@@ -54,3 +55,9 @@ router-outlet + *
 {
     background: var(--blt-color-3-alt);
 }
+
+.darker
+{
+    background-color: rgb(170, 170, 170);
+}
+

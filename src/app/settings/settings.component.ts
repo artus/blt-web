@@ -29,7 +29,6 @@ export class SettingsComponent implements OnInit {
   onWsUrlClicked() {
     console.log("Creating new connection for WebSockets...")
     this.bltService.initializeWebSocketConnection(this.webSocketUrlInput);
+    this.router.navigate(['/overview']);
   }
-
-
 }

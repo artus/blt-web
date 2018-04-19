@@ -11,6 +11,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { SettingsComponent } from './settings/settings.component';
 import { GlobalsService } from './globals.service';
 import { ExplorerComponent } from './explorer/explorer.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ExplorerComponent } from './explorer/explorer.component';
     OverviewComponent,
     SettingsComponent,
     ExplorerComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import { BltService } from '../blt.service';
 })
 export class OverviewComponent implements OnInit {
 
+  JSON = JSON;
+
   constructor(public bltService : BltService) { }
 
   ngOnInit() {
