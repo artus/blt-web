@@ -5,7 +5,7 @@ import { GlobalsService } from './globals.service';
 @Injectable()
 export class BltService {
 
-  public blt: Blt = new Blt("http", "localhost", "9984");
+  public blt: Blt = new Blt("https", "test3.bigchaindb.com");
 
   nodeInfo: NodeInformation;
   transactionStream: Array<any> = new Array();
