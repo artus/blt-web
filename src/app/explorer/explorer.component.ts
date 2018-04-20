@@ -32,6 +32,7 @@ export class ExplorerComponent implements OnInit {
     let transaction_id = this.route.snapshot.paramMap.get("transaction_id");
 
     if (asset_id != null) {
+      this.searchInput = asset_id;
       this.searchAssets(asset_id);
       this.loadTransactions(asset_id);
     }

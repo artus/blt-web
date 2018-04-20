@@ -14,15 +14,13 @@ require("../../assets/js/jquery.knob.min.js");
 })
 export class TestComponent implements OnInit, AfterViewInit {
 
-  public $ = $;
-
   constructor(public bltService: BltService) { }
 
   testIdPlaceholder = "test-" + new Date().toISOString();
-  testIdInput = "";
+  testIdInput = "test" + new Date().toISOString();
 
-  amountInput = 100;
-  typeInput = "create";
+  amountInput = 2;
+  typeInput = "transfer";
 
   static currentTestMax = 0;
   currentTestIndex = 0;
@@ -52,8 +50,6 @@ export class TestComponent implements OnInit, AfterViewInit {
 
     if (this.someValue == 100) this.someValue = 0;
     else this.someValue++;
-
-    console.log("updating " + this.someValue);
 
     $(".dial").trigger("change");
 

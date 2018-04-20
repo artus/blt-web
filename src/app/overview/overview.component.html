@@ -61,13 +61,14 @@
     </div>
     <div id="blt-ws-transactions" class="column grow">
       <div class="column no-margin" *ngFor="let tx of bltService.transactionStream">
-        <div class="row margin-top margin-bottom-small margin-left-small">
-          <p>{{tx.timestamp.toLocaleTimeString()}}:</p>
-        </div>
         <div class="row">
-          <div class="warning warning-hover balloon pointer padding-big no-margin margin-left-small no-margin-top margin-right overflow-x-hidden"
-            routerLink="/explorer/{{ JSON.parse(tx.transaction).asset_id }}/{{ JSON.parse(tx.transaction).transaction_id }}" >
-            {{ JSON.stringify(JSON.parse(tx.transaction), null, 4) }}
+          <div class="window margin-left-small margin-big no-margin-bottom grow pointer" routerLink="/explorer/{{ JSON.parse(tx.transaction).asset_id }}/{{ JSON.parse(tx.transaction).transaction_id }}">
+            <div class="window-title primary-alternative padding padding-left-big">
+              {{ tx.timestamp.toLocaleTimeString()}}
+            </div>
+            <div class="window-content primary primary-hover padding-big">
+              {{ JSON.stringify(JSON.parse(tx.transaction), null, 4) }}
+            </div>
           </div>
         </div>
       </div>
