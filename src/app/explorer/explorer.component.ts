@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BltService } from '../blt.service';
 import * as _ from 'lodash';
+import { query } from '@angular/core/src/animation/dsl';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-explorer',
@@ -9,7 +11,7 @@ import * as _ from 'lodash';
 })
 export class ExplorerComponent implements OnInit {
 
-  constructor(public bltService : BltService) { }
+  constructor(public bltService : BltService, public route : ActivatedRoute) { }
 
   JSON = JSON;
 
@@ -19,9 +21,24 @@ export class ExplorerComponent implements OnInit {
   transactions = new Array();
   transaction: any;
 
-  onSearchInputChange = _.debounce(this.searchAssets, 500);
+  onSearchInputChanged = _.debounce(this.onSearchInputChange, 500);
 
   ngOnInit() {
+    this.loadPathVariables();
+  }
+
+  loadPathVariables() {
+    let asset_id = this.route.snapshot.paramMap.get("asset_id");
+    let transaction_id = this.route.snapshot.paramMap.get("transaction_id");
+
+    if (asset_id != null) {
+      this.searchAssets(asset_id);
+      this.loadTransactions(asset_id);
+    }
+
+    if (transaction_id != null) {
+      this.loadTransaction(transaction_id);
+    }
   }
 
   clearSearchResults() {
@@ -30,12 +47,16 @@ export class ExplorerComponent implements OnInit {
     this.transaction = null;
   }
 
-  async searchAssets() {
+  onSearchInputChange() {
     if (this.searchInput == "") this.clearSearchResults();
     else {
       console.log("Querying assets.");
-      this.assets = await this.bltService.blt.connection.searchAssets(this.searchInput);
+      this.searchAssets(this.searchInput);
     }
+  }
+
+  async searchAssets(queryString) {
+    this.assets = await this.bltService.blt.connection.searchAssets(queryString);
   }
 
   async loadTransactions(assetId) {

@@ -3,8 +3,8 @@
   <div class="row">
 
     <!-- test form -->
-    <div id="blt-test-form" class="card width-5 margin-small">
-      <h3>Start New Test</h3>
+    <div id="blt-test-form" class="card width-5 margin padding-big">
+      <h2>Start New Test</h2>
 
       <!-- Input -->
       <div class="row vertical-center">
@@ -36,25 +36,31 @@
 
   </div>
 
+  <div class="row">
+  </div>
+
 
   <div class="row space-between">
 
     <div class="column grow text-center rounded darker vertical-center padding-big margin-big">
-      <div class="gauge margin-small" data-fill="0"></div> 
-
-      <h3>Success Rate</h3>
-      
+      <input id="dial" type="text" value="{{someValue}}" class="dial" readonly>
+      <h3 class="margin-top">Success Rate</h3>
     </div>
 
     <div class="column grow text-center rounded darker vertical-center padding-big margin-big">
-      <div class="gauge margin-small" data-fill="progressRate"></div> 
-      <h3>Progress</h3>
+      <input id="progressDial" type="text" value="{{someValue}}" class="dial" readonly>
+      <h3 class="margin-top">Progress</h3>
     </div>
+
     <div class="column grow text-center rounded darker vertical-center padding-big margin-big">
-      <div class="gauge margin-small" data-fill="100"></div> 
-      <h3>Error Rate</h3>
+      <input id="successDial" type="text" value="{{someValue}}" class="dial" readonly>
+      <h3 class="margin-top">Error Rate</h3>
     </div>
 
   </div>
 
 </div>
+
+<script>
+
+</script>

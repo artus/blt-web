@@ -65,7 +65,8 @@
           <p>{{tx.timestamp.toLocaleTimeString()}}:</p>
         </div>
         <div class="row">
-          <div class="warning warning-hover balloon pointer padding-big no-margin margin-left-small no-margin-top margin-right overflow-x-hidden">
+          <div class="warning warning-hover balloon pointer padding-big no-margin margin-left-small no-margin-top margin-right overflow-x-hidden"
+            routerLink="/explorer/{{ JSON.parse(tx.transaction).asset_id }}/{{ JSON.parse(tx.transaction).transaction_id }}" >
             {{ JSON.stringify(JSON.parse(tx.transaction), null, 4) }}
           </div>
         </div>
@@ -73,7 +74,8 @@
       <div class="row">
         <div class="card no-margin margin-left-small margin-top margin-right padding-big" *ngIf="bltService.transactionStream.length == 0">
           <h4 class="margin-bottom-small">No transactions yet...</h4>
-          <p>If you expect transactions but none appear, try setting the <a routerLink="/settings">WebSocket URL manually in the settings</a>.</p>
+          <p>If you expect transactions but none appear, try setting the
+            <a routerLink="/settings">WebSocket URL manually in the settings</a>.</p>
         </div>
       </div>
     </div>

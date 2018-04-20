@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://artusvranken.github.io/jackfruit/src/jackfruit.css');
-/*@import url('../../../../jackfruit/src/jackfruit.css');*/
+/*@import url('https://artusvranken.github.io/jackfruit/src/jackfruit.css');*/
+@import url('../../../../jackfruit/src/jackfruit.css');
 
 :root 
 {
@@ -61,3 +61,20 @@ router-outlet + *
     background-color: rgb(170, 170, 170);
 }
 
+.expand:hover
+{
+    flex-grow: 1 !important;
+    transition: 0.5s;
+}
+
+.expand:hover::before
+{
+    flex-grow: 0 !important;
+    transition: 0.5s;
+}
+
+.expand:hover::before::before
+{
+    flex-grow: 0 !important;
+    transition: 0.5s;
+}

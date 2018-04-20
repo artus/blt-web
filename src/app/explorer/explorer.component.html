@@ -11,7 +11,7 @@
     <!-- results -->
 
     <div class="row" *ngFor="let asset of assets">
-      <div class="width-10 balloon no-margin margin-bottom warning warning-hover pointer overflow-x-hidden" (click)="loadTransactions(asset.id)">
+      <div class="width-10 balloon no-margin margin-bottom yellow yellow-hover pointer overflow-x-hidden" (click)="loadTransactions(asset.id)">
         <pre>{{ JSON.stringify(asset, null, 4) }}</pre>
       </div>
     </div>
@@ -29,7 +29,7 @@
 
 
     <div class="row" *ngFor="let transaction of transactions" (click)="loadTransaction(transaction.id)">
-      <div class="balloon no-margin margin-bottom warning warning-hover pointer overflow-x-hidden">
+      <div class="balloon no-margin margin-bottom yellow yellow-hover pointer overflow-x-hidden">
         <pre>{{ JSON.stringify(transaction, null, 4) }}</pre>
       </div>
     </div>
@@ -37,15 +37,74 @@
 </div>
 
 <!-- Transaction details -->
-<div class="column grow has-scrollable-child">
+<div class="expand column grow has-scrollable-child">
   <div class="column grow scrollable-y padding-big">
 
     <h3 class="margin-bottom-small">Transaction details</h3>
-
-    <div class="row" *ngIf="transaction">
-      <div class="balloon no-margin margin-bottom warning warning-hover overflow-x-hidden">
-          <pre>{{ JSON.stringify(transaction, null, 4)}}</pre>
+    <div class="column" *ngIf="transaction">
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          id
+        </div>
+        <div class="window-content primary">
+          {{transaction.id}}
+        </div>
       </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          asset
+        </div>
+        <div class="window-content primary">
+          <pre>{{ JSON.stringify(transaction.asset, null, 4)}}</pre>
+        </div>
+      </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          metadata
+        </div>
+        <div class="window-content primary">
+          <pre>{{ JSON.stringify(transaction.id, null, 4) }}</pre>
+        </div>
+      </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          operation
+        </div>
+        <div class="window-content primary">
+          {{transaction.operation}}
+        </div>
+      </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          version
+        </div>
+        <div class="window-content primary">
+          {{ transaction.version }}
+        </div>
+      </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          inputs
+        </div>
+        <div class="window-content primary">
+          <pre>{{ JSON.stringify(transaction.inputs, null, 4) }}</pre>
+        </div>
+      </div>
+
+      <div class="window no-margin margin-bottom-small grow">
+        <div class="window-title primary-alternative">
+          outputs
+        </div>
+        <div class="window-content primary">
+          <pre>{{ JSON.stringify(transaction.outputs, null, 4) }}</pre>
+        </div>
+      </div>
+
     </div>
 
   </div>

@@ -6,9 +6,11 @@ import { ExplorerComponent } from '../explorer/explorer.component';
 import { TestComponent } from '../test/test.component';
 
 const routes = [
+  { path: '', redirectTo: "/overview", pathMatch: "full" },
   { path: "overview", component: OverviewComponent },
   { path: "settings", component: SettingsComponent },
   { path: "explorer", component: ExplorerComponent },
+  { path: "explorer/:asset_id/:transaction_id", component: ExplorerComponent },
   { path: "test", component: TestComponent }
 ];
 
